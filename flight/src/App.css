@@ -36,3 +36,50 @@
     transform: rotate(360deg);
   }
 }
+/*----------------------------------Subscribe-------------------- */
+/* .subscribe{
+  background: var(--SecondaryColor);
+
+  
+}
+.sectionContainer{
+  text-align: center;
+
+  
+}
+.inputDiv{
+  margin-top: 1rem;
+  flex-direction: column;
+  background: var(--whiteColor);
+  border-radius: 1rem;
+
+  
+}
+
+input{
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 1rem .5rem;
+
+ 
+}
+
+.btn{
+  width: 100%;
+}
+
+ .placeholder{
+  font-size: 13px;
+  opacity: .5;
+} 
+
+/*----------------------------------Footer-------------------- */
+/*
+.footer{
+  background: var(--SecondaryColor);
+}
+
+.sectionContainer{
+  gap: 2.5rem;
+} */
