@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from './Components/Footer/Footer'
-import Subscribers from './Components/Subscribe/Subscribe'
+import Subscribe from './Components/Subscribe/Subscribe'
 
 const App = () => {
     return (

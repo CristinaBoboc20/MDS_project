@@ -1,6 +1,109 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan',sans-serif;
+
+}
+:root{
+    --PrimaryColor: hsl(225, 50%, 48%);
+    --SecondaryColor: hsl(180, 17%, 95%);
+    --colorOne: hsl(15, 74%, 70%);
+    --colorTwo: hsl(28, 100%, 82%);
+    --HoverColor: hsl(225, 56%, 59%);
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(0, 0%, 12%);
+    --textColor: hsl(240, 1%, 48%);
+    --borderColor: hsl(0, 0%, 83%);
+    --whiteColorDeam: hsl(0, 0%, 93%);
+    --greyBg: hsl(0, 0%, 96%);
+    --greyText: rgb(145, 145, 145);
+    --inputColor: hsl(330, 12%, 97%);
+    // --boxShadow: box-shadow: rgba(0, 0, 0, 0.1);
+    --transition: .4s ease-in-out;
+}
+body{
+    background:var(--whiteColor);
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+    cursor: pointer;
+}
+.section{
+    padding:4rem 0 2rem;
+}
+.container{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.icon{
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+
+.flex{
+    display: flex;
+    align-items: center;
+}
+.grid{
+    display: grid;
+    align-items: center;
+}
+.none{
+    display:none;
+}
+.btn{
+    padding:.7rem 1.5rem;
+    background: var(--PrimaryColor);
+    border: none;
+    outline: none;
+    border-radius: 3rem;
+    cursor: pointer;
+    color: var(--whiteColor);
+    a{
+        color:var(--whiteColor);
+        font-weight: 500;
+    }
+    &:hover{
+        background-color: var(--HoverColor);
+    }
+
+}
+img, video{
+    width: 100%;
+    height:auto;
+}
+
+
+
+input{
+    font-size: 100%;
+    color: var(--greyText);
+}
+p{
+    font-size: 13px;
+    color: var(--greyText);
+    line-height: 22px;
+
+}
+h4{
+    padding: 1rem 0;
+    font-weight: 700;
+    color: var(--blackColor);
+}
+h2{
+    font-size: 25px;
+    padding: 1rem 0;
+    color: var(--blackColor);
+}
+
 .subscribe{
     background: var(--SecondaryColor);
-
     .sectionContainer{
         text-align: center;
 
@@ -38,7 +141,7 @@
         gap: 2.5rem;
 
         .gridOne{
-            gap: 1 rem;
+            gap: 1rem;
             justify-content: center;
             margin: auto;
 
@@ -58,11 +161,11 @@
                     border-radius: 10rem;
                     border: 1px solid var(--borderColor);
                     box-shadow: var(--boxShadow);
-                    padding: 4rem;
+                    padding: .4rem;
                     color: var(--greyText);
 
                     &:hover{
-                        background: #000;
+                        background:var(--PrimaryColor);
                         transform: translateY(-7px);
                         transition: var(--transition);
                         border: 1px solid var(--PrimaryColor);
@@ -86,7 +189,7 @@
                 display: block;
                 color: var(--greyText);
                 transition: var(--transition);
-                padding: 3rem 0;
+                padding: .3rem 0;
 
                 &:hover{
                     transform: translateX(7px);
@@ -99,7 +202,7 @@
 
     .copyRightDiv{
         justify-content: center;
-        margin-top: 1.5 rem;
+        margin-top: 1.5rem;
         padding: 1rem;
         gap: 1rem;
         border-top: 1px solid var(--greyText);
