@@ -10,7 +10,7 @@ const FlightApp = () => {
   const onSubmit = data => alert(JSON.stringify(data));
   return (
   
-    <div>
+    <section>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="bg-white w-auto h-auto pb-10 mt-5 mx-5 px-5 rounded-lg">
         {/* {header section} */}
@@ -26,29 +26,41 @@ const FlightApp = () => {
                 <div className='flex items-center space-x-2'>
                   <input 
                   type="radio"
-                  className='w-6 h-6'/>
-                  <p className='text-x1 font-bold'>Round</p>
+                  className={`w-6 h-6 ${errors.tripType && "focus:border-red-500 focus:ring-red-500 border-red-500" }`}
+                  value='one way'
+                  {...register("tripType", { required: {
+                    value: true,
+                    message: 'Trip type is required'
+                  }})}/>
+                  <p className='text-x1 font-bold uppercase'>one way</p>
                 </div>
                 <div className='flex items-center space-x-2'>
                   <input 
                   type="radio"
-                  className='w-6 h-6'/>
-                  <p className='text-x1 font-bold'>Round</p>
+                  className={`w-6 h-6 ${errors.tripType && "focus:border-red-500 focus:ring-red-500 border-red-500" }`}
+                  value='round trip'
+                  {...register("tripType", { required: {
+                    value: true,
+                    message: 'Trip type is required'
+                  }})}/>
+                  <p className='text-x1 font-bold uppercase'>Round trip</p>
                 </div>
                 <div className='flex items-center space-x-2'>
                   <input 
                   type="radio"
-                  className='w-6 h-6'/>
-                  <p className='text-x1 font-bold'>Round</p>
-                </div>
-                <div className='flex items-center space-x-2'>
-                  <input 
-                  type="radio"
-                  className='w-6 h-6'/>
-                  <p className='text-x1 font-bold'>Round</p>
+                  className={`w-6 h-6 ${errors.tripType && "focus:border-red-500 focus:ring-red-500 border-red-500" }`}
+                  value='multy-city'
+                  {...register("tripType", { required: {
+                    value: true,
+                    message: 'Trip type is required'
+                  }})}
+                  />
+                  <p className='text-x1 font-bold uppercase'>Multy-city</p>
                 </div>
               </div>
-              <div>Error</div>
+              <div>
+              {errors.tripType && <span className='text-sm text-red-500'>{errors.tripType.message}</span>}
+              </div>
             </div>
 
             {/* DEPARTURE section */}
@@ -56,7 +68,13 @@ const FlightApp = () => {
               <div>
                 <div className='relative'>
                   <p className='font-bold text-x1 uppercase'>flying from</p>
-                  <select className='w-full h-16 rounded-lg text-2xl pl-20'>
+                  <select 
+                  className={`w-full h-16 rounded-lg text-2xl pl-20 ${errors.departure && "focus:border-red-500 focus:ring-red-500 border-red-500" }`}
+                  {...register("departure", { required: {
+                    value: true,
+                    message: 'Departure is required'
+                  }})}
+                  >
                     <option value='' selected disabled hidden>--Select Airport--</option>
                     <option value='ENIA'>England Newcastle</option>
                     <option value='INIA'>Italy Naples International Airport</option>
@@ -65,7 +83,9 @@ const FlightApp = () => {
                   </select>
                   <FaPlaneDeparture className='text-4xl absolute left-5 top-10'/>
                 </div>
-                <div>Error</div>
+                <div>
+                {errors.departure && <span className='text-sm text-red-500'>{errors.departure.message}</span>}
+                </div>
               </div>
             </div>
 
@@ -75,7 +95,12 @@ const FlightApp = () => {
               <div>
                 <div className='relative'>
                   <p className='font-bold text-x1 uppercase'>flying from</p>
-                  <select className='w-full h-16 rounded-lg text-2xl pl-20'>
+                  <select
+                  className={`w-full h-16 rounded-lg text-2xl pl-20 ${errors.arrival && "focus:border-red-500 focus:ring-red-500 border-red-500" }`}
+                  {...register("arrival", { required: {
+                    value: true,
+                    message: 'Arrival is required'
+                  }})}  >
                     <option value='' selected disabled hidden>--Select Airport--</option>
                     <option value='ENIA'>England Newcastle</option>
                     <option value='INIA'>Italy Naples International Airport</option>
@@ -84,7 +109,10 @@ const FlightApp = () => {
                   </select>
                   <FaPlaneArrival className='text-4xl absolute left-5 top-10'/>
                 </div>
-                <div>Error</div>
+                <div>
+                {errors.arrival && <span className='text-sm text-red-500'>{errors.arrival.message}</span>}
+
+                </div>
               </div>
             </div>
 
@@ -97,9 +125,15 @@ const FlightApp = () => {
                 <div className='relative'>
                   <p className='font-bold text-x1 uppercase'>departure date</p>
                   <input type='date'
-                   className='w-full h-16 rounded-lg text-2xl'/>
+                  className={`w-full h-16 rounded-lg text-2xl pl-20 ${errors.departureDate && "focus:border-red-500 focus:ring-red-500 border-red-500" }`}
+                  {...register("departureDate", { required: {
+                    value: true,
+                    message: 'Departure date is required'
+                  }})}  />
                 </div>
-                <div>Error</div>
+                <div>
+                {errors.departureDate && <span className='text-sm text-red-500'>{errors.departureDate.message}</span>}
+                </div>
               </div>
             </div>
 
@@ -110,9 +144,17 @@ const FlightApp = () => {
                 <div className='relative'>
                 <p className='font-bold text-x1 uppercase'>return date</p>
                   <input type='date'
-                   className='w-full h-16 rounded-lg text-2xl'/>
+                   className={`w-full h-16 rounded-lg text-2xl pl-20 ${errors.returnDate && "focus:border-red-500 focus:ring-red-500 border-red-500" }`}
+                   {...register("returnDate", { required: {
+                     value: true,
+                     message: 'Return date is required'
+                   }})} 
+                   />
                 </div>
-                <div>Error</div>
+                <div>
+                {errors.returnDate && <span className='text-sm text-red-500'>{errors.returnDate.message}</span>}
+
+                </div>
               </div>
             </div>
           </div>
@@ -125,7 +167,12 @@ const FlightApp = () => {
               <div >
                 <div className='relative'>
                   <p className='font-bold text-x1 uppercase'>{" "} adults (18+)</p>
-                  <select className='w-full h-16 rounded-lg text-2xl pl-20'>
+                  <select 
+                  className='w-full h-16 rounded-lg text-2xl pl-20'
+                  {...register("adult", { required: {
+                    value: true,
+                    message: 'Trip type is required'
+                  }})} >
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -134,7 +181,7 @@ const FlightApp = () => {
                   </select>
                   <GiPerson className='text-4xl absolute left-5 top-10'/>
                 </div>
-                <div>Error</div>
+                {/* <div>Error</div> */}
               </div>
             </div>
 
@@ -144,7 +191,13 @@ const FlightApp = () => {
               <div >
                 <div className='relative'>
                   <p className='font-bold text-x1 uppercase'>children (0-17)</p>
-                  <select className='w-full h-16 rounded-lg text-2xl pl-20'>
+                  <select 
+                  className='w-full h-16 rounded-lg text-2xl pl-20'
+                  {...register("children", { required: {
+                    value: true,
+                    message: 'Trip type is required'
+                  }})} 
+                  >
                     <option>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -154,7 +207,7 @@ const FlightApp = () => {
                   </select>
                   <FaChild className='text-4xl absolute left-5 top-10'/>
                 </div>
-                <div>Error</div>
+                {/* <div>Error</div> */}
               </div>
             </div>
 
@@ -167,13 +220,19 @@ const FlightApp = () => {
               <div >
                 <div >
                   <p className='font-bold text-x1 uppercase'> class</p>
-                  <select className='w-full h-16 rounded-lg text-2xl pl-20'>
+                  <select 
+                  className='w-full h-16 rounded-lg text-2xl pl-20'
+                  {...register("class", { required: {
+                    value: true,
+                    message: 'Trip type is required'
+                  }})} 
+                  >
                     <option>Economy</option>
                     <option>Business</option>
                   </select>
                  
                 </div>
-                <div>Error</div>
+                {/* <div>Error</div> */}
               </div>
             </div>
 
@@ -183,7 +242,13 @@ const FlightApp = () => {
               <div >
                 <div >
                   <p className='font-bold text-x1 uppercase'> price</p>
-                  <select className='w-full h-16 rounded-lg text-2xl pl-20'>
+                  <select 
+                  className='w-full h-16 rounded-lg text-2xl pl-20'
+                  {...register("price", { required: {
+                    value: true,
+                    message: 'Trip type is required'
+                  }})} 
+                  >
                     <option>All prices</option>
                     <option>$ 1000</option>
                     <option>$ 2000</option>
@@ -193,7 +258,7 @@ const FlightApp = () => {
                   </select>
                  
                 </div>
-                <div>Error</div>
+                {/* <div>Error</div> */}
               </div>
             </div>
           </div>
@@ -210,7 +275,7 @@ const FlightApp = () => {
         </div>
         </div>
       </form>
-    </div>
+    </section>
   )
 }
 
