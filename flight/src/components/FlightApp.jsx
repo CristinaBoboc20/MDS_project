@@ -12,15 +12,15 @@ const FlightApp = () => {
   
     <section>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="bg-white w-auto h-auto pb-10 mt-5 mx-5 px-5 rounded-lg">
+        <div className="bg-white w-auto h-auto pb-10 mt-5 mx-5 px-5 rounded-lg shadow">
         {/* {header section} */}
-        <div className='h-24 flex justify-center items-center shadow'>
+        <div className='h-24 flex justify-center items-center'>
           <p className='uppercase font-bold text-4xl text-center'>flight booking app</p>
         </div>
 
         {/* {body section} */}
         <div>
-          <div className='grid justify-center space-y-5 bg-indigo-50 pb-10'>
+          <div className='grid justify-center space-y-5 pb-10'>
             <div >
               <div className='flex space-x-8 mt-5'>
                 <div className='flex items-center space-x-2'>
