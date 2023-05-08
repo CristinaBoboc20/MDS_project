@@ -2,16 +2,68 @@ import React from 'react'
 import {FaPlaneArrival, FaPlaneDeparture, FaChild} from "react-icons/fa"
 import {GiPerson} from "react-icons/gi"
 import {useForm } from  "react-hook-form"
+import { useState } from 'react';
+import fetch from 'isomorphic-fetch'; // or use the built-in fetch
 
 const FlightApp = () => {
   //handle events
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+  const [searchResults, setSearchResults] = useState(null);
+  const [searchParams, setSearchParams] = useState({
+    adults: '',
+    origin: '',
+    destination: '',
+    departureDate: '',
+    returnDate: '',
+    cabinClass: '',
+    currency: 'EUR',
+    stops: '',
+    duration: '',
+    startFrom: '',
+    arriveTo: '',
+    returnStartFrom: '',
+    returnArriveTo: ''
+  });
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setSearchParams((prevState) => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+  
+  const searchFlights = async () => {
+    const baseUrl = 'https://skyscanner44.p.rapidapi.com/search-extended';
+    
+    const url = `${baseUrl}?${new URLSearchParams(searchParams)}`;
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'b5aa846d9fmshb5794ca49f74e29p1cf9e6jsnb2e4c2665b79',
+        'X-RapidAPI-Host': 'skyscanner44.p.rapidapi.com'
+      }
+    };
+    
+    try {
+      const response = await fetch(url, options);
+      const result = await response.text();
+      console.log(result);
+      // Update search results state or perform other actions with the data
+      setSearchResults(result);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
   //handle submit
-  const onSubmit = data => alert(JSON.stringify(data));
+//   const onSubmit = data => alert(JSON.stringify(data));
   return (
   
     <section>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form >
         <div className="bg-white w-auto h-auto pb-10 mt-5 mx-5 px-5 rounded-lg shadow">
         {/* {header section} */}
         <div className='h-24 flex justify-center items-center'>
@@ -21,7 +73,7 @@ const FlightApp = () => {
         {/* {body section} */}
         <div>
           <div className='grid justify-center space-y-5 pb-10'>
-            <div >
+            {/* <div >
               <div className='flex space-x-8 mt-5'>
                 <div className='flex items-center space-x-2'>
                   <input 
@@ -61,14 +113,24 @@ const FlightApp = () => {
               <div>
               {errors.tripType && <span className='text-sm text-red-500'>{errors.tripType.message}</span>}
               </div>
-            </div>
+            </div> */}
 
             {/* DEPARTURE section */}
             <div>
               <div>
                 <div className='relative'>
                   <p className='font-bold text-x1 uppercase'>flying from</p>
-                  <select 
+                  <label>
+                    Origin:
+                    <input
+                    type="text"
+                    className={`w-full h-16 rounded-lg text-2xl pl-20 `}
+                    name="origin"
+                    value={searchParams.origin}
+                    onChange={handleChange}
+                    />
+                </label>
+                  {/* <select 
                   className={`w-full h-16 rounded-lg text-2xl pl-20 ${errors.departure && "focus:border-red-500 focus:ring-red-500 border-red-500" }`}
                   {...register("departure", { required: {
                     value: true,
@@ -80,12 +142,12 @@ const FlightApp = () => {
                     <option value='INIA'>Italy Naples International Airport</option>
                     <option value='MMA'>Malaysia Mulu Airport</option>
                     <option value='KMA'>Kenya Malindi Airport</option>
-                  </select>
+                  </select> */}
                   <FaPlaneDeparture className='text-4xl absolute left-5 top-10'/>
                 </div>
-                <div>
+                {/* <div>
                 {errors.departure && <span className='text-sm text-red-500'>{errors.departure.message}</span>}
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -95,7 +157,17 @@ const FlightApp = () => {
               <div>
                 <div className='relative'>
                   <p className='font-bold text-x1 uppercase'>flying from</p>
-                  <select
+                  <label>
+                    Destination:
+                    <input
+                    type="text"
+                    className={`w-full h-16 rounded-lg text-2xl pl-20`}
+                    name="destination"
+                    value={searchParams.destination}
+                    onChange={handleChange}
+                    />
+                    </label>
+                  {/* <select
                   className={`w-full h-16 rounded-lg text-2xl pl-20 ${errors.arrival && "focus:border-red-500 focus:ring-red-500 border-red-500" }`}
                   {...register("arrival", { required: {
                     value: true,
@@ -106,13 +178,13 @@ const FlightApp = () => {
                     <option value='INIA'>Italy Naples International Airport</option>
                     <option value='MMA'>Malaysia Mulu Airport</option>
                     <option value='KMA'>Kenya Malindi Airport</option>
-                  </select>
+                  </select> */}
                   <FaPlaneArrival className='text-4xl absolute left-5 top-10'/>
                 </div>
-                <div>
+                {/* <div>
                 {errors.arrival && <span className='text-sm text-red-500'>{errors.arrival.message}</span>}
 
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -124,16 +196,26 @@ const FlightApp = () => {
               <div>
                 <div className='relative'>
                   <p className='font-bold text-x1 uppercase'>departure date</p>
-                  <input type='date'
+                  <label>
+                    departureDate:
+                    <input
+                    type="date"
+                    className={`w-full h-16 rounded-lg text-2xl pl-20`}
+                    name="departureDate"
+                    value={searchParams.departureDate}
+                    onChange={handleChange}
+                    />
+                </label>
+                  {/* <input type='date'
                   className={`w-full h-16 rounded-lg text-2xl pl-20 ${errors.departureDate && "focus:border-red-500 focus:ring-red-500 border-red-500" }`}
                   {...register("departureDate", { required: {
                     value: true,
                     message: 'Departure date is required'
-                  }})}  />
+                  }})}  /> */}
                 </div>
-                <div>
+                {/* <div>
                 {errors.departureDate && <span className='text-sm text-red-500'>{errors.departureDate.message}</span>}
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -143,31 +225,51 @@ const FlightApp = () => {
               <div>
                 <div className='relative'>
                 <p className='font-bold text-x1 uppercase'>return date</p>
-                  <input type='date'
+                <label>
+                    returnDate:
+                    <input
+                    type="date"
+                    className={`w-full h-16 rounded-lg text-2xl pl-20 `}
+                    name="returnDate"
+                    value={searchParams.returnDate}
+                    onChange={handleChange}
+                    />
+                </label>
+                  {/* <input type='date'
                    className={`w-full h-16 rounded-lg text-2xl pl-20 ${errors.returnDate && "focus:border-red-500 focus:ring-red-500 border-red-500" }`}
                    {...register("returnDate", { required: {
                      value: true,
                      message: 'Return date is required'
                    }})} 
-                   />
+                   /> */}
                 </div>
-                <div>
+                {/* <div>
                 {errors.returnDate && <span className='text-sm text-red-500'>{errors.returnDate.message}</span>}
 
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
 
 
           {/* passenger section */}
-          <div className='flex space-x-2'>
+          {/* <div className='flex space-x-2'> */}
              {/* adult section */}
-             <div className='w-full'>
+            <div className='w-full'>
               <div >
                 <div className='relative'>
                   <p className='font-bold text-x1 uppercase'>{" "} adults (18+)</p>
-                  <select 
+                  <label>
+                    Adults:
+                    <input
+                    type="text"
+                    className='w-full h-16 rounded-lg text-2xl pl-20'
+                    name="adults"
+                    value={searchParams.adults}
+                    onChange={handleChange}
+                    />
+                    </label>
+                  {/* <select 
                   className='w-full h-16 rounded-lg text-2xl pl-20'
                   {...register("adult", { required: {
                     value: true,
@@ -178,16 +280,16 @@ const FlightApp = () => {
                     <option>3</option>
                     <option>4</option>
                     <option>5</option>
-                  </select>
+                  </select> */}
                   <GiPerson className='text-4xl absolute left-5 top-10'/>
                 </div>
                 {/* <div>Error</div> */}
               </div>
-            </div>
+            {/* </div> */}
 
 
             {/* children section */}
-            <div className='w-full'>
+            {/* <div className='w-full'>
               <div >
                 <div className='relative'>
                   <p className='font-bold text-x1 uppercase'>children (0-17)</p>
@@ -207,9 +309,9 @@ const FlightApp = () => {
                   </select>
                   <FaChild className='text-4xl absolute left-5 top-10'/>
                 </div>
-                {/* <div>Error</div> */}
+             
               </div>
-            </div>
+            </div> */}
 
           </div>
 
@@ -220,7 +322,16 @@ const FlightApp = () => {
               <div >
                 <div >
                   <p className='font-bold text-x1 uppercase'> class</p>
-                  <select 
+                  <label>
+                    Class:
+                    <input
+                    type="text"
+                    name="cabinClass"
+                    value={searchParams.cabinClass}
+                    onChange={handleChange}
+                    />
+                </label>
+                  {/* <select 
                   className='w-full h-16 rounded-lg text-2xl pl-20'
                   {...register("class", { required: {
                     value: true,
@@ -229,7 +340,7 @@ const FlightApp = () => {
                   >
                     <option>Economy</option>
                     <option>Business</option>
-                  </select>
+                  </select> */}
                  
                 </div>
                 {/* <div>Error</div> */}
@@ -238,7 +349,7 @@ const FlightApp = () => {
 
 
             {/* price section */}
-           <div className='w-full'>
+           {/* <div className='w-full'>
               <div >
                 <div >
                   <p className='font-bold text-x1 uppercase'> price</p>
@@ -258,20 +369,25 @@ const FlightApp = () => {
                   </select>
                  
                 </div>
-                {/* <div>Error</div> */}
+                
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* btn section */}
 
         <div>
 
-        <input type="submit" value="Find flight" className='w-full h-16 font-bold text-3xl uppercase rounded-lg bg-green-100 hover:bg-white' />
-
+        {/* <input type="submit" value="Find flight" className='w-full h-16 font-bold text-3xl uppercase rounded-lg bg-green-100 hover:bg-white' /> */}
+        <button onClick={searchFlights}>Search</button>  {searchResults && <div>{searchResults} console.log(searchResults)</div> }
+        <div>
+            <p>
+                ANA ARE MEREEEEEEEEEEEEEEEEEE
+            </p>
+        </div>
         </div>
           </div>
-
+        {/* </div> */}
         </div>
         </div>
       </form>
