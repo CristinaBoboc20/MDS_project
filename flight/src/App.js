@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Blog3 from "./components/blog/Blog3";
-import Article1 from "./components/blog/Aticles/Article1";
-import Header1 from "./components/header";
+// import Blog3 from "./Components/blog/Blog3";
+// import Article1 from "./Components/blog/Aticles/Article1";
+import Header1 from "./Components/header";
 
 function App() {
   return (
@@ -31,11 +31,11 @@ function App() {
                   element={
                     <>
                       <Header1 />
-                      <Blog3 />
+                      {/* <Blog3 /> */}
                     </>
                   }
                 />
-                <Route path="/article1" element={<Article1 />} />
+                {/* <Route path="/article1" element={<Article1 />} /> */}
               </Routes>
             </Router>
           </div>
