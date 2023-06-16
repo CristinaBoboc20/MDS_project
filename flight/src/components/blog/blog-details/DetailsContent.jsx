@@ -1,5 +1,5 @@
 import blogsData from "../../../data/blogs";
-import Social2 from "../common/Social2";
+import Social2 from "../../common/social/Social2";
 
 const DetailsContent = () => {
   return (
