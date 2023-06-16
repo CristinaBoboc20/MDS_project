@@ -8,8 +8,14 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< Updated upstream
     "react-icons": "^4.8.0",
+=======
+    "react-pro-sidebar": "^1.1.0-alpha.1",
+    "react-router-dom": "^6.13.0",
+>>>>>>> Stashed changes
     "react-scripts": "5.0.1",
+    "react-tabs": "^6.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
