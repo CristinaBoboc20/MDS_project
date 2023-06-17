@@ -1,3 +1,5 @@
+import "../../styles/main.scss"
+
 import { Link as RouterLink } from "react-router-dom";
 import {
   ProSidebarProvider,

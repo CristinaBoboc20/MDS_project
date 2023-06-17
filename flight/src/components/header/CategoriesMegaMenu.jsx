@@ -6,7 +6,7 @@ import {
   isActiveLink,
   isActiveParentChaild,
 } from "../../utils/linkActiveChecker";
-
+import "../../styles/main.scss"
 const CategoriesMegaMenu = () => {
   const itemList = ["Flights"];
 

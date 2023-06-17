@@ -1,4 +1,5 @@
-import "../../../styles/blogCard.css";
+
+import "../../../styles/main.scss"
 const TopComment = () => {
     return (
       <div className="row y-gap-30">

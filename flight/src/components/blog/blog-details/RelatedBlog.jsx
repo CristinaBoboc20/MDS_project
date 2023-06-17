@@ -1,3 +1,5 @@
+import "../../../styles/main.scss"
+
 import blogsData from "../../../data/blogs";
 import "../../../styles/blogCard.css";
 const RelatedBlog = () => {

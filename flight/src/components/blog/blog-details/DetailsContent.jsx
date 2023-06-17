@@ -1,5 +1,6 @@
 import blogsData from "../../../data/blogs";
 import Social2 from "../../common/social/Social2";
+import "../../../styles/main.scss"
 
 const DetailsContent = () => {
   return (

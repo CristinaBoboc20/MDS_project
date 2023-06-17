@@ -1,3 +1,5 @@
+import "../../../styles/main.scss"
+
 const Social2 = () => {
     const socialContent = [
       { id: 1, icon: "icon-facebook", link: "http://facebok.com/" },

@@ -1,3 +1,5 @@
+import "../../../styles/main.scss"
+
 const FormReply = () => {
     return (
       <form className="row y-gap-30 pt-40">

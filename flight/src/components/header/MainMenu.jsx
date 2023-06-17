@@ -1,3 +1,5 @@
+import "../../styles/main.scss"
+
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import {
   homeItems,

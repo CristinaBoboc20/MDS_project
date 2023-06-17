@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./styles/main.scss"
 
 import Blog3 from "./Components/blog/Blog3";
 import Article1 from "./Components/blog/Aticles/Article1";
 import Header1 from "./Components/header";
-
+import Search from "./Components/search1";
 function App() {
   return (
     <div>
@@ -31,6 +32,7 @@ function App() {
                   element={
                     <>
                       <Header1 />
+                      <Search/>
                       <Blog3 />
                     </>
                   }

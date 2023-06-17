@@ -2,6 +2,8 @@ import { Link as RouterLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MainMenu from "./MainMenu";
 import MobileMenu from "./MobileMenu";
+import "../../styles/main.scss"
+
 const Header1 = () => {
   const [navbar, setNavbar] = useState(false);
 

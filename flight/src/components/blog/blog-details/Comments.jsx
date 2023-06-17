@@ -1,3 +1,5 @@
+import "../../../styles/main.scss"
+
 const Comments = () => {
     return (
       <div className="row y-gap-40">

@@ -1,3 +1,5 @@
+import "../../../styles/main.scss"
+
 const BlogNavigator = () => {
   return (
     <div className="row y-gap-30 justify-between">
