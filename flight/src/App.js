@@ -8,6 +8,8 @@ import Article1 from "./Components/blog/Aticles/Article1";
 import Header1 from "./Components/header";
 import Search from "./Components/search1";
 import Flights from "./Components/flight/Flights";
+import Testimonial from "./Components/testimonial/Testimonial";
+import TestimonialRating from "./Components/testimonial/TestimonialRating";
 function App() {
   return (
     <Router>
@@ -52,6 +54,26 @@ function App() {
                 </div>
                 {/* End .container */}
               </section>
+             
+
+              <section className="layout-pt-lg layout-pb-lg bg-dark-3">
+                <div className="container">
+                  <div className="row y-gap-40 justify-between text-white">
+                    <div className="col-xl-5 col-lg-6">
+                      <TestimonialRating />
+                    </div>
+                    {/* End .col */}
+
+                    <div className="col-lg-6">
+                      <Testimonial />
+                    </div>
+                    {/* End .col */}
+                  </div>
+                  {/* End .row */}
+                </div>
+              </section>
+              {/* End testimonial and brand sections Section */}
+
               <div>
                 <section className="layout-pt-lg layout-pb-lg">
                   <div className="container">
@@ -86,4 +108,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;
