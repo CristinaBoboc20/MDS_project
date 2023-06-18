@@ -10,6 +10,8 @@ import Search from "./Components/search1";
 import Flights from "./Components/flight/Flights";
 import Testimonial from "./Components/testimonial/Testimonial";
 import TestimonialRating from "./Components/testimonial/TestimonialRating";
+import Footer from "./Components/Footer/Footer";
+import Subscribe from "./Components/Subscribe/Subscribe";
 function App() {
   return (
     <Router>
@@ -54,7 +56,6 @@ function App() {
                 </div>
                 {/* End .container */}
               </section>
-             
 
               <section className="layout-pt-lg layout-pb-lg bg-dark-3">
                 <div className="container">
@@ -98,6 +99,10 @@ function App() {
                   {/* End .container */}
                 </section>
                 {/* End blog Section */}
+                <div>
+                  <Subscribe />
+                  <Footer />
+                </div>
               </div>
             </>
           }
