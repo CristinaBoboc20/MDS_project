@@ -1,5 +1,5 @@
 import blogsData from "../../../data/blogs";
-import Social2 from "../../common/social/Social2";
+import Social2 from "../../common/Social2";
 import "../../../styles/main.scss"
 
 const DetailsContent = () => {
@@ -62,13 +62,13 @@ const DetailsContent = () => {
 
       <div className="row y-gap-30 pt-30">
         <div className="col-md-6">
-          <img src="/img/blog/single/2.png" alt="image" className="rounded-4" />
+          <img src="/img/blog/2.png" alt="image" className="rounded-4" />
           <div className="text-15 mt-10">
             Donec purus posuere nullam lacus aliquam.
           </div>
         </div>
         <div className="col-md-6">
-          <img src="/img/blog/single/3.png" alt="image" className="rounded-4" />
+          <img src="/img/blog/3.png" alt="image" className="rounded-4" />
           <div className="text-15 mt-10">
             Donec purus posuere nullam lacus aliquam.
           </div>
@@ -111,7 +111,7 @@ const DetailsContent = () => {
             {blogsData.slice(0, 3).map((item) => (
               <div key={item.id} className="col-auto">
                 <a
-                  href={`/blog/blog-details/${item.id}`}
+                  href={`/blog/${item.id}`}
                   className="button -blue-1 py-5 px-20 bg-blue-1-05 rounded-100 text-15 fw-500 text-blue-1 text-capitalize"
                 >
                   {item.tag}

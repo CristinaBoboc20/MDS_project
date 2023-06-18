@@ -1,7 +1,7 @@
 .mainSearch {
   position: relative;
   z-index: 2;
-
+ 
   @include media-below(lg) {
     width: 100%;
     border-radius: 4px !important;

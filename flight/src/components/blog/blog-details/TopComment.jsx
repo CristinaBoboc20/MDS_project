@@ -5,7 +5,7 @@ const TopComment = () => {
       <div className="row y-gap-30">
         <div className="col-auto">
           <img
-            src="/img/avatars/4.png"
+            src="/img/avatar/4.png"
             alt="image"
             className="size-70 rounded-full"
           />

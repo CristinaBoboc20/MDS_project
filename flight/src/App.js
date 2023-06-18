@@ -1,3 +1,4 @@
+// App.jsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./styles/main.scss";
@@ -7,11 +8,13 @@ import Blog3 from "./Components/blog/Blog3";
 import Article1 from "./Components/blog/Aticles/Article1";
 import Header1 from "./Components/header";
 import Search from "./Components/search1";
-import Flights from "./Components/flight/Flights";
+// import Flights from "./Components/suggested-flights/Flights";
+import FlightsSuggested from "./Components/suggested-flights/FlightsSuggested";
 import Testimonial from "./Components/testimonial/Testimonial";
 import TestimonialRating from "./Components/testimonial/TestimonialRating";
 import Footer from "./Components/Footer/Footer";
 import Subscribe from "./Components/Subscribe/Subscribe";
+import Flights from "./Components/flight/flight-list-v1";
 function App() {
   return (
     <Router>
@@ -30,7 +33,7 @@ function App() {
                         <h2 className="sectionTitle__title">
                           Suggested Flights
                         </h2>
-                        <p className=" sectionTitle__text mt-5 sm:mt-0">
+                        <p className="sectionTitle__text mt-5 sm:mt-0">
                           Interdum et malesuada fames ac ante ipsum
                         </p>
                       </div>
@@ -50,7 +53,7 @@ function App() {
                   {/* End .row */}
 
                   <div className="row y-gap-30 pt-40 sm:pt-20">
-                    <Flights />
+                    <FlightsSuggested />
                   </div>
                   {/* End .row */}
                 </div>
@@ -108,6 +111,7 @@ function App() {
           }
         />
         <Route path="/article1" element={<Article1 />} />
+        <Route path="/flight/flight-list-v1" element={<Flights />} />
       </Routes>
     </Router>
   );

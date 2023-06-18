@@ -1,4 +1,4 @@
-import "../../../styles/main.scss"
+
 
 const Social = () => {
     const socialContent = [

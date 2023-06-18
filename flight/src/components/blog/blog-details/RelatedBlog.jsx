@@ -1,14 +1,14 @@
 import "../../../styles/main.scss"
 
 import blogsData from "../../../data/blogs";
-import "../../../styles/blogCard.css";
+
 const RelatedBlog = () => {
   return (
     <>
       {blogsData.slice(0, 4).map((item) => (
         <div className="col-lg-3 col-sm-6" key={item.id}>
           <a
-            href={`/blog/blog-details/${item.id}`}
+            href={`/blog/${item.id}`}
             className="blogCard -type-2 d-block bg-white rounded-4 shadow-4"
           >
             <div className="blogCard__image">

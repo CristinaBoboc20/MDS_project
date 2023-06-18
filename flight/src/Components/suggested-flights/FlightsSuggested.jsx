@@ -1,7 +1,7 @@
 import flightsData from "../../data/flights";
 import { Link as RouterLink } from "react-router-dom";
 
-const Flights = () => {
+const FlightsSuggested = () => {
   return (
     <>
       {flightsData.slice(0, 4).map((item) => (
@@ -85,4 +85,4 @@ const Flights = () => {
   );
 };
 
-export default Flights;
+export default FlightsSuggested;

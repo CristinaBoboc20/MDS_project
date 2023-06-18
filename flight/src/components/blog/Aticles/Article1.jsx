@@ -7,14 +7,17 @@ import FormReply from "../blog-details/FormReply";
 import TopComment from "../blog-details/TopComment";
 import BlogNavigator from "../blog-details/BlogNavigator";
 import Comments from "../blog-details/Comments";
-
+import Header1 from "../../header";
+import Footer from "../../Footer/Footer";
 const Article1 = () => {
   const firstBlog = blogsData[0];
   return (
     <>
+      <Header1 />
+
       <section className="layout-pt-md layout-pb-md">
         <div className="container">
-          <div className="row y-gap-40 justify-center text-center">
+          <div className="row y-gap-40 justify-center text-center mt-20">
             <div className="col-auto">
               <div className="text-15 fw-500 text-blue-1 mb-8 text-capitalize">
                 {firstBlog?.tag}
@@ -73,8 +76,9 @@ const Article1 = () => {
         {/* End .container */}
       </section>
       {/* Details Blog Details Content */}
+      <Footer />
     </>
   );
 };
 
-export default Article1;
+export default Article1;

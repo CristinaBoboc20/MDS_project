@@ -21,7 +21,7 @@ import {
   isActiveParentChaild,
 } from "../../utils/linkActiveChecker";
 
-import Social from "../common/social/Social";
+import Social from "../common/Social";
 import ContactInfo from "./ContactInfo";
 
 const MobileMenu = () => {
