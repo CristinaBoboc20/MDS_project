@@ -5,7 +5,7 @@ import { getFlights } from './api';
 import FlightApp from './components/FlightApp';
 import './index.css'
 import './components/search.css'
-import FlightSearchForm from './components/FlightSearchForm';
+// import FlightSearchForm from './components/FlightSearchForm';
 import Search from './components/Search';
 function App() {
  
