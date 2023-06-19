@@ -1,7 +1,7 @@
-import FilterSelect from "./FilterSelect";
+// import FilterSelect from "./FilterSelect";
 import MainFilterSearchBox from "./MainFilterSearchBox";
 import "../../styles/main.scss"
-
+import FlightProperties from "../flight/flight-list-v1/FlightProperties";
 const Search = () => {
   return (
     <section className="masthead -type-10">
@@ -21,11 +21,13 @@ const Search = () => {
               </p>
               <div data-aos="fade-up" data-aos-delay="300">
                 <div className="row y-gap-20 items-center pt-30">
-                  <FilterSelect />
+                  {/* <FilterSelect /> */}
                 </div>
                 {/* End .row */}
 
                 <MainFilterSearchBox />
+                <FlightProperties/>
+
                 {/* End filter content */}
               </div>
             </div>

@@ -1,10 +1,24 @@
 import flightsData from "../../../data/flights";
+const getDurationString = (durationInMinutes) => {
+  const hours = Math.floor(durationInMinutes / 60);
+  const minutes = durationInMinutes % 60;
+  return `${hours}h ${minutes}m`;
+};
 
-const FlightProperties = () => {
+const formatTime = (datetime) => {
+  const date = new Date(datetime);
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  return `${hours}:${minutes}`;
+};
+const FlightProperties = ({flights}) => {
+  if (!flights) {
+    return null; // sau poți afișa un mesaj de încărcare sau o valoare implicită
+  }
   return (
     <>
-      {flightsData.map((item) => (
-        <div className="js-accordion" key={item.id}>
+      {flights.map((flight) => (
+        <div className="js-accordion" key={flight.id}>
           <div className="py-30 px-30 bg-white rounded-4 base-tr mt-30">
             <div className="row y-gap-30 justify-between">
               <div className="col">
@@ -19,8 +33,8 @@ const FlightProperties = () => {
                   <div className="col">
                     <div className="row x-gap-20 items-end">
                       <div className="col-auto">
-                        <div className="lh-15 fw-500">14:00</div>
-                        <div className="text-15 lh-15 text-light-1">SAW</div>
+                        <div className="lh-15 fw-500"> {formatTime(flight.legs[0].departure)}</div>
+                        <div className="text-15 lh-15 text-light-1">{flight.legs[0].origin.displayCode}</div>
                       </div>
                       <div className="col text-center">
                         <div className="flightLine">
@@ -32,14 +46,14 @@ const FlightProperties = () => {
                         </div>
                       </div>
                       <div className="col-auto">
-                        <div className="lh-15 fw-500">22:00</div>
-                        <div className="text-15 lh-15 text-light-1">STN</div>
+                        <div className="lh-15 fw-500">{formatTime(flight.legs[0].arrival)}</div>
+                        <div className="text-15 lh-15 text-light-1"> {flight.legs[0].destination.displayCode}</div>
                       </div>
                     </div>
                   </div>
                   <div className="col-md-auto">
                     <div className="text-15 text-light-1 px-20 md:px-0">
-                      4h 05m
+                    {getDurationString(flight.legs[0].durationInMinutes)}
                     </div>
                   </div>
                 </div>
@@ -54,8 +68,8 @@ const FlightProperties = () => {
                   <div className="col">
                     <div className="row x-gap-20 items-end">
                       <div className="col-auto">
-                        <div className="lh-15 fw-500">14:00</div>
-                        <div className="text-15 lh-15 text-light-1">SAW</div>
+                        <div className="lh-15 fw-500">{formatTime(flight.legs[0].departure)}</div>
+                        <div className="text-15 lh-15 text-light-1">{flight.legs[0].origin.displayCode}</div>
                       </div>
                       <div className="col text-center">
                         <div className="flightLine">
@@ -67,14 +81,14 @@ const FlightProperties = () => {
                         </div>
                       </div>
                       <div className="col-auto">
-                        <div className="lh-15 fw-500">22:00</div>
-                        <div className="text-15 lh-15 text-light-1">STN</div>
+                        <div className="lh-15 fw-500"> {formatTime(flight.legs[0].arrival)}</div>
+                        <div className="text-15 lh-15 text-light-1">{flight.legs[0].destination.displayCode}</div>
                       </div>
                     </div>
                   </div>
                   <div className="col-md-auto">
                     <div className="text-15 text-light-1 px-20 md:px-0">
-                      4h 05m
+                    {getDurationString(flight.legs[0].durationInMinutes)}
                     </div>
                   </div>
                 </div>
@@ -86,14 +100,14 @@ const FlightProperties = () => {
                   <div className="pl-30 border-left-light h-full md:d-none" />
                   <div>
                     <div className="text-right md:text-left mb-10">
-                      <div className="text-18 lh-16 fw-500">US$934</div>
+                      <div className="text-18 lh-16 fw-500"> US${flight.pricing_options[0].price.amount}</div>
                       <div className="text-15 lh-16 text-light-1">16 deals</div>
                     </div>
                     <div className="accordion__button">
                       <button
                         className="button -dark-1 px-30 h-50 bg-blue-1 text-white"
                         data-bs-toggle="collapse"
-                        data-bs-target={`#${item.selectId}`}
+                        data-bs-target={`#${flight.id}`}
                       >
                         View Deal <div className="icon-arrow-top-right ml-15" />
                       </button>
@@ -105,7 +119,7 @@ const FlightProperties = () => {
             </div>
             {/* End .row */}
 
-            <div className=" collapse" id={item.selectId}>
+            {/* <div className=" collapse" id={flight.selectId}>
               <div className="border-light rounded-4 mt-30">
                 <div className="py-20 px-30">
                   <div className="row justify-between items-center">
@@ -260,7 +274,7 @@ const FlightProperties = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* End collapase content */}
           </div>
           {/* End bg-white */}

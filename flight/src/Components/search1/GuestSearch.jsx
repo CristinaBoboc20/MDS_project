@@ -1,22 +1,23 @@
 import React, { useState } from "react";
-import "../../styles/main.scss"
 
 const counters = [
-  { name: "Adults", defaultValue: 2 },
-  { name: "Children", defaultValue: 1 },
-  { name: "Rooms", defaultValue: 1 },
+  { name: "Adults", defaultValue: 1 },
 ];
 
 const Counter = ({ name, defaultValue, onCounterChange }) => {
   const [count, setCount] = useState(defaultValue);
+
   const incrementCount = () => {
-    setCount(count + 1);
-    onCounterChange(name, count + 1);
+    const newCount = count + 1;
+    setCount(newCount);
+    onCounterChange(name, newCount);
   };
+
   const decrementCount = () => {
     if (count > 0) {
-      setCount(count - 1);
-      onCounterChange(name, count - 1);
+      const newCount = count - 1;
+      setCount(newCount);
+      onCounterChange(name, newCount);
     }
   };
 
@@ -60,35 +61,51 @@ const Counter = ({ name, defaultValue, onCounterChange }) => {
   );
 };
 
-const GuestSearch = () => {
+const GuestSearch = ({ value, onChange }) => {
   const [guestCounts, setGuestCounts] = useState({
-    Adults: 2,
-    Children: 1,
-    Rooms: 1,
+    Adults: value,
   });
+
   const handleCounterChange = (name, value) => {
     setGuestCounts((prevState) => ({ ...prevState, [name]: value }));
+    onChange({ target: { name: "adults", value: value } });
   };
-  return (
-    <div className="searchMenu-guests px-24 lg:py-20 lg:px-0 js-form-dd js-form-counters">
-      <div
-        data-bs-toggle="dropdown"
-        data-bs-auto-close="outside"
-        aria-expanded="false"
-        data-bs-offset="0,22"
-      >
-        <h4 className="text-15 fw-500 ls-2 lh-16">Travellers</h4>
-        <div className="text-15 text-light-1 ls-2 lh-16">
-          <span className="js-count-adult">{guestCounts.Adults}</span> adults -{" "}
-          <span className="js-count-child">{guestCounts.Children}</span>{" "}
-          childeren - <span className="js-count-room">{guestCounts.Rooms}</span>{" "}
-          room
-        </div>
-      </div>
-      {/* End guest */}
 
-      <div className="shadow-2 dropdown-menu min-width-400">
-        <div className="bg-white px-30 py-30 rounded-4 counter-box">
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
+
+  const getTotalGuestCount = () => {
+    const total = Object.values(guestCounts).reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      0
+    );
+    return total;
+  };
+
+  return (
+    <div className="dropdown js-dropdown">
+      
+      
+      <button
+        className="button -outline-black-1 size-45 rounded-4 w-full js-dropdown-toggle"
+        onClick={toggleDropdown}
+      >
+        <div className="text-15 lh-12">
+          {getTotalGuestCount()} {getTotalGuestCount() === 1 ? "Adult" : "Adults"}
+        </div>
+      </button>
+      <div
+        className={`dropdown-menu ${isDropdownOpen ? "show" : ""}`}
+        onClick={closeDropdown}
+      >
+        <div className="px-24 py-20">
           {counters.map((counter) => (
             <Counter
               key={counter.name}
@@ -98,8 +115,11 @@ const GuestSearch = () => {
             />
           ))}
         </div>
+        {/* End .dropdown-menu */}
       </div>
+      {/* End .dropdown */}
     </div>
   );
 };
+
 export default GuestSearch;

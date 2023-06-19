@@ -7,6 +7,7 @@ import FlightProperties from "./FlightProperties";
 import Pagination from "./Pagination";
 import "../../../styles/main.scss";
 const Flights = () => {
+  
   return (
     <>
       <div className="header-margin"></div>
@@ -41,10 +42,10 @@ const Flights = () => {
         <div className="container">
         
             <div >
-              <TopHeaderFilter />
+              {/* <TopHeaderFilter /> */}
 
               <div className="row">
-                <FlightProperties />
+                {/* <FlightProperties /> */}
               </div>
               {/* End .row */}
               <Pagination />
