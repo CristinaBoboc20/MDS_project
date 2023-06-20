@@ -73,6 +73,10 @@ https://www.youtube.com/watch?v=9dY9B26RZUA
 
 ![Comments](https://github.com/CristinaBoboc20/MDS_project/assets/92121071/504958f0-3ec5-4ee2-8633-ec693a1d3530)
 
+## ChatGPT
+
+![image](https://github.com/CristinaBoboc20/MDS_project/assets/92121071/3c189579-43be-4a96-ac07-33e99242cd9d)
+
 
 
 
