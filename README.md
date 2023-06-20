@@ -56,9 +56,22 @@ https://www.youtube.com/watch?v=9dY9B26RZUA
 #### 11.As a user, I want to login to Flight Booking site so that I can search and buy plane tickets.
 ![Log-In](https://github.com/CristinaBoboc20/MDS_project/assets/92121071/716397ba-8081-4332-9e34-4c064ec431ae)
 
+## Backlog
+![Backlog](https://github.com/CristinaBoboc20/MDS_project/assets/92121071/ff9eb8c9-5b53-41e4-b612-1b3e630bd233)
+
+
+
 
 ## UML DIAGRAM
 ![UML](https://github.com/CristinaBoboc20/MDS_project/assets/92121071/eff03c41-7a73-462e-8c25-161ec485cbc1)
+
+## Source control cu git
+
+![Git](https://github.com/CristinaBoboc20/MDS_project/assets/92121071/56f2b66c-69f8-47e8-b4d2-fbe8a8ff0f38)
+
+## Comments
+
+![Comments](https://github.com/CristinaBoboc20/MDS_project/assets/92121071/504958f0-3ec5-4ee2-8633-ec693a1d3530)
 
 
 
