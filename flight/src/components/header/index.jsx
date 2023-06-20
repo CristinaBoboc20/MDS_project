@@ -2,7 +2,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MainMenu from "./MainMenu";
 import MobileMenu from "./MobileMenu";
-import "../../styles/main.scss"
+import "../../styles/main.scss";
 
 const Header1 = () => {
   const [navbar, setNavbar] = useState(false);
@@ -47,17 +47,24 @@ const Header1 = () => {
             <div className="col-auto">
               <div className="d-flex items-center">
                 <div className="d-flex items-center is-menu-opened-hide md:d-none">
-                  <RouterLink
+                  {/* <RouterLink
                     href="/others-pages/login"
                     className="button px-30 fw-400 text-14 -blue-1 bg-dark-4 h-50 text-white"
                   >
                     Become An Expert
-                  </RouterLink>
-                  <RouterLink
+                  </RouterLink> */}
+                  {/* <RouterLink
                     href="/others-pages/signup"
                     className="button px-30 fw-400 text-14 border-dark-4 -blue-1 h-50 text-dark-4 ml-20"
                   >
                     Sign In / Register
+                  </RouterLink> */}
+
+                  <RouterLink
+                    to="/finalauth" // Adaugăm ruta corespunzătoare pentru Part2Auth
+                    className="button px-30 fw-400 text-14 border-dark-4 -blue-1 h-50 text-dark-4 ml-20"
+                  >
+                    Autentificare
                   </RouterLink>
                 </div>
                 {/* End d-flex */}

@@ -1,4 +1,5 @@
 import flightsData from "../../../data/flights";
+import { Link as RouterLink } from "react-router-dom";
 const getDurationString = (durationInMinutes) => {
   const hours = Math.floor(durationInMinutes / 60);
   const minutes = durationInMinutes % 60;
@@ -104,13 +105,13 @@ const FlightProperties = ({flights}) => {
                       <div className="text-15 lh-16 text-light-1">16 deals</div>
                     </div>
                     <div className="accordion__button">
-                      <button
+                      <RouterLink to="/book"
                         className="button -dark-1 px-30 h-50 bg-blue-1 text-white"
                         data-bs-toggle="collapse"
                         data-bs-target={`#${flight.id}`}
                       >
-                        View Deal <div className="icon-arrow-top-right ml-15" />
-                      </button>
+                        Buy Now <div className="icon-arrow-top-right ml-15" />
+                      </RouterLink>
                     </div>
                   </div>
                 </div>

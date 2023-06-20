@@ -70,7 +70,7 @@ const FlightsSuggested = () => {
                     to="/flight/flight-list-v1"
                     className="button -outline-blue-1 px-30 h-50 text-blue-1"
                   >
-                    View Deal <div className="icon-arrow-top-right ml-15" />
+                   Buy Now   <div className="icon-arrow-top-right ml-15" />
                   </RouterLink>
                 </div>
               </div>

@@ -2,7 +2,7 @@ import React from "react";
 import Autentication from "./Autentication";
 import { Auth0Provider } from "@auth0/auth0-react";
 
-const Part2Auth = () => {
+const Finalauth = () => {
   const domain = "dev-syp5l8t5nlchbz2i.us.auth0.com";
   const clientId = "nseIDHWgvvSuNsaAjeN0a2wLW3TRQiQe";
 
@@ -17,4 +17,4 @@ const Part2Auth = () => {
   );
 };
 
-export default Part2Auth;
+export default Finalauth;

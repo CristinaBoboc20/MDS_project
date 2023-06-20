@@ -3,7 +3,7 @@ import { Link as RouterLink } from "react-router-dom";
 // import "../../styles/blogCard.css"
 // import '../../styles/cardImage.css'
 // import "../sass/main.scss"; // Import the main.scss file
-import "../../styles/main.scss"
+import "../../styles/main.scss";
 const Blog3 = () => {
   return (
     <>

@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./styles/main.scss";
 import { Link as RouterLink } from "react-router-dom";
-
+import Book from "./Components/booking";
 import Blog3 from "./Components/blog/Blog3";
 import Article1 from "./Components/blog/Aticles/Article1";
 import Header1 from "./Components/header";
@@ -15,6 +15,7 @@ import TestimonialRating from "./Components/testimonial/TestimonialRating";
 import Footer from "./Components/Footer/Footer";
 import Subscribe from "./Components/Subscribe/Subscribe";
 import Flights from "./Components/flight/flight-list-v1";
+import Finalauth from "./Components/authentication/Finalauth";
 function App() {
   return (
     <Router>
@@ -24,6 +25,7 @@ function App() {
           element={
             <>
               <Header1 />
+               
               <Search />
               <section className="layout-pt-md layout-pb-md">
                 <div className="container">
@@ -112,6 +114,9 @@ function App() {
         />
         <Route path="/article1" element={<Article1 />} />
         <Route path="/flight/flight-list-v1" element={<Flights />} />
+        <Route path="/finalauth" element={<Finalauth/>} /> 
+        <Route path="/book" element={<Book/>} /> 
+        
       </Routes>
     </Router>
   );

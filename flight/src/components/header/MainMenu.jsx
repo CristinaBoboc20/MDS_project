@@ -57,9 +57,9 @@ const MainMenu = ({ style = "" }) => {
         </li>
         {/* End categories menu items */}
 
-        <li className={location.pathname === "/destinations" ? "current" : ""}>
+        {/* <li className={location.pathname === "/destinations" ? "current" : ""}>
           <RouterLink to="/destinations">Destinations</RouterLink>
-        </li>
+        </li> */}
         {/* End Destinatinos single menu */}
 
         <li
@@ -88,7 +88,7 @@ const MainMenu = ({ style = "" }) => {
         </li>
         {/* End blogItems */}
 
-        <li
+        {/* <li
           className={`${
             isActiveParentChaild(pageItems, location.pathname) ? "current" : ""
           } menu-item-has-children`}
@@ -111,10 +111,10 @@ const MainMenu = ({ style = "" }) => {
               </li>
             ))}
           </ul>
-        </li>
+        </li> */}
         {/* End pages items */}
 
-        <li
+        {/* <li
           className={`${
             isActiveParentChaild(dashboardItems, location.pathname)
               ? "current"
@@ -139,7 +139,7 @@ const MainMenu = ({ style = "" }) => {
               </li>
             ))}
           </ul>
-        </li>
+        </li> */}
 
         <li className={location.pathname === "/contact" ? "current" : ""}>
           <RouterLink to="/contact">Contact</RouterLink>
