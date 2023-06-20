@@ -3,6 +3,10 @@
 SkyFly is a React-based project that simplifies the flight search process and offers additional features. With its user-friendly interface, you can easily find the best flight options for your needs. Once you've found your desired flight, SkyFly allows you to conveniently purchase the tickets. It also provides suggested flights and includes testimonials from satisfied travelers. The platform's comprehensive blog section offers destination guides, travel tips, and inspiring content. SkyFly goes beyond a simple flight search platform by creating an interactive space where you can explore flights, gain insights, and seamlessly book your tickets.
 
 
+## App demo
+
+https://www.youtube.com/watch?v=9dY9B26RZUA
+
 ## Membrii echipei
 
 - [Boboc Cristina](https://github.com/CristinaBoboc20)
@@ -47,6 +51,15 @@ SkyFly is a React-based project that simplifies the flight search process and of
 
 
 #### 10. As an unregistered user, I want to register online so that I can search for plane tickets available to buy.
+![Sign-Up](https://github.com/CristinaBoboc20/MDS_project/assets/92121071/43ee6852-3135-4b18-baba-4ae85c70a4fd)
 
 #### 11.As a user, I want to login to Flight Booking site so that I can search and buy plane tickets.
+![Log-In](https://github.com/CristinaBoboc20/MDS_project/assets/92121071/716397ba-8081-4332-9e34-4c064ec431ae)
+
+
+## UML DIAGRAM
+![UML](https://github.com/CristinaBoboc20/MDS_project/assets/92121071/eff03c41-7a73-462e-8c25-161ec485cbc1)
+
+
+
 
