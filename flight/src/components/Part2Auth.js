@@ -3,8 +3,10 @@ import Autentication from "./Autentication";
 import { Auth0Provider } from "@auth0/auth0-react";
 
 const Part2Auth = () => {
-  const domain = "dev-syp5l8t5nlchbz2i.us.auth0.com";
-  const clientId = "nseIDHWgvvSuNsaAjeN0a2wLW3TRQiQe";
+  
+
+  const domain = "dev-y1lx07ra50qmcuuy.us.auth0.com";
+  const clientId = "XZTLzBiKwIxbYXrJnIWxTCUtYBGXq5SH";
 
   return (
     <Auth0Provider
